@@ -1,34 +1,37 @@
-<h1 class="alert-info"><%= @game.name %></h1>
+<div>
+  <h1 id="show_title"><%= @game.name %></h1>
+  <div class="container show">
+    <div class="row">
+      <div class="col-md-4">
+        <%= cl_image_tag @game.photo, height: 300, width: 400, crop: :fill %>
+      </div>
+      <div class="col-md-3">
+        <p><%= @game.description %></p>
+      </div>
+      <div class="col-md-1">
+        <p>R$ <%= @game.price %></p>
+      </div>
+      <div class="col-md-2">
+        <p><%= @game.console.name %></p>
+      </div>
+    </div>
+    <% if policy(@game).edit? %>
+      <%= link_to edit_game_path(@game) do %>
+        <button class="btn btn-primary">Update</button>
+      <% end %>
+    <% end %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <%= cl_image_tag @game.photo, height: 300, width: 400, crop: :fill %>
-    </div>
-    <div class="col-md-3">
-      <p><%= @game.description %></p>
-    </div>
-    <div class="col-md-1">
-      <p>R$ <%= @game.price %></p>
-    </div>
-    <div class="col-md-2">
-      <p><%= @game.console.name %></p>
+    <% if policy(@game).destroy? %>
+      <%= link_to game_path(@game), method: :delete do %>
+        <button class="btn btn-danger">Delete</button>
+      <% end %>
+    <% end %>
+    <div style="text-align: center">
+    <p>
+      <%= link_to games_path do %>
+        <button class="btn btn-info">Back to GAMES</button>
+      <% end %>
+    </p>
     </div>
   </div>
-  <% if policy(@game).edit? %>
-    <%= link_to edit_game_path(@game) do %>
-      <button class="btn btn-primary">Update</button>
-    <% end %>
-  <% end %>
-
-  <% if policy(@game).destroy? %>
-    <%= link_to game_path(@game), method: :delete do %>
-      <button class="btn btn-danger">Delete</button>
-    <% end %>
-  <% end %>
-  <p>
-    <%= link_to games_path do %>
-      <button class="btn btn-info">Back to GAMES</button>
-    <% end %>
-  </p>
 </div>
