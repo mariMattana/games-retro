@@ -17,3 +17,18 @@
 .btn-new-game:hover {
   background: #1a579e;
 }
+.btn-home {
+  font-size: 25px;
+  color: white;
+  padding: 10px 55px;
+  border-radius: 2px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.btn-color-home{
+  background: #EC682F;
+}
+.btn-home:hover{
+  background: #ECBC33;
+}
+
