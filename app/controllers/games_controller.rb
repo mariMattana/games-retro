@@ -12,6 +12,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @consoles = Console.all
     autorizing
   end
 
@@ -27,17 +28,20 @@ class GamesController < ApplicationController
   end
 
   def edit
+    @consoles = Console.all
     autorizing
   end
 
   def update
     autorizing
     @game.update(game_params)
+    redirect_to games_path
   end
 
   def destroy
     autorizing
     @game.destroy
+    redirect_to games_path
   end
 
   private

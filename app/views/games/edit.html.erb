@@ -1,7 +1,7 @@
 <%= simple_form_for(@game) do |f| %>
   <div class="row">
     <div class="col-md-8 col-md-offset-2 new-game-form">
-      <h1>Add a New Game</h1>
+      <h1>Edit Game</h1>
 
       <div class="form-group">
         <%= f.input :name, class: 'form-control' %>
@@ -21,6 +21,7 @@
 
       <div class="form-group">
         <%= f.input :photo %>
+        <%= cl_image_tag(@game.photo, width: 400, height: 300, crop: :fill) %>
         <%= f.input :photo_cache, as: :hidden %>
       </div>
 
