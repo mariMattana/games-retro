@@ -1,8 +1,14 @@
 <h1>All Games</h1>
+<%= link_to new_game_path  do %>
+  <button>New Game</button>
+<% end %>
 <br>
 <% @games.each do |game| %>
-  <h3><%= game.name %></h3>
-  <p><%= game.description %></p>
-  <p>R$ <%= game.price %></p>
+  <%= link_to game_path(game) do %>
+    <h3><%= game.name %></h3>
+    <p><%= game.description %></p>
+    <p>R$ <%= game.price %></p>
+    <%= cl_image_tag game.photo, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <hr>
 <% end %>
