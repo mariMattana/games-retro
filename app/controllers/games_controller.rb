@@ -38,6 +38,7 @@ class GamesController < ApplicationController
   def destroy
     autorizing
     @game.destroy
+    redirect_to games_path
   end
 
   private
