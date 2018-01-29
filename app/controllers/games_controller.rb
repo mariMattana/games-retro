@@ -12,6 +12,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @consoles = Console.all
     autorizing
   end
 
