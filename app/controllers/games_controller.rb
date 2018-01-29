@@ -3,18 +3,21 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def index
-    @games = Game.all
+    @games = policy_scope(Game).order(name: :asc)
   end
 
   def show
+    autorizing
   end
 
   def new
     @game = Game.new
+    autorizing
   end
 
   def create
     @game = Game.new(game_params)
+    autorizing
     @game.user = current_user
     if @game.save
       redirect_to game_path(@game)
@@ -24,13 +27,16 @@ class GamesController < ApplicationController
   end
 
   def edit
+    autorizing
   end
 
   def update
+    autorizing
     @game.update(game_params)
   end
 
   def destroy
+    autorizing
     @game.destroy
   end
 
@@ -42,6 +48,10 @@ class GamesController < ApplicationController
 
   def set_game
     @game = Game.find(params[:id])
+  end
+
+  def autorizing
+    authorize @game
   end
 
 end
