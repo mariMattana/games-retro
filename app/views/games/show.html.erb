@@ -3,4 +3,20 @@
 <p><%= @game.description %></p>
 <p>R$ <%= @game.price %></p>
 <p><%= @game.console.name %></p>
+  <% if policy(@game).edit? %>
+    <%= link_to edit_game_path(@game) do %>
+      <button class="btn btn-primary">Update</button>
+    <% end %>
+  <% end %>
+
+  <% if policy(@game).destroy? %>
+    <%= link_to game_path(@game), method: :delete do %>
+      <button class="btn btn-danger">Delete</button>
+    <% end %>
+  <% end %>
+<p>
+  <%= link_to games_path do %>
+    <button class="btn btn-info">Back to GAMES</button>
+  <% end %>
+ </p>
 <hr>
