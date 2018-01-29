@@ -1,6 +1,11 @@
 <h1><%= @game.name %></h1>
-<%= cl_image_tag @game.photo, height: 300, width: 400, crop: :fill %>
-<p><%= @game.description %></p>
-<p>R$ <%= @game.price %></p>
-<p><%= @game.console.name %></p>
-<hr>
+<div class="row">
+  <div class="col-md-4 product-img">
+    <%= cl_image_tag @game.photo, height: 400, width: 500, crop: :fill %>
+  </div>
+  <div class="col-md-6">
+    <p><%= @game.description %></p>
+    <p>R$ <%= "%0.2f" % [@game.price] %></p>
+    <p><%= @game.console.name %></p>
+  </div>
+</div>
