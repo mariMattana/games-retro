@@ -1,0 +1,6 @@
+<h1><%= @game.name %></h1>
+<%= cl_image_tag @game.photo, height: 300, width: 400, crop: :fill %>
+<p><%= @game.description %></p>
+<p>R$ <%= @game.price %></p>
+<p><%= @game.console.name %></p>
+<hr>
