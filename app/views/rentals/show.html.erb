@@ -1,0 +1,26 @@
+<div>
+  <h1 id="show_title">Rental</h1>
+  <div class="container show">
+    <div class="row">
+      <div class="col-md-3">
+        <p>Owner: <%= User.find(@rental.owner_id).first_name %></p>
+      </div>
+      <div class="col-md-3">
+        <p>User: <%= User.find(@rental.user_id).first_name %></p>
+      </div>
+      <div class="col-md-3">
+        <p><%= @rental.game.name %></p>
+      </div>
+      <div class="col-md-3">
+        <p><%= @rental.game.console.name %></p>
+      </div>
+    </div>
+    <%= link_to rentals_path do %>
+      <button class="btn btn-info">Back to Rentals</button>
+    <% end %>
+    <%= link_to games_path do %>
+      <button class="btn btn-info">Back to Games</button>
+    <% end %>
+    </div>
+  </div>
+</div>

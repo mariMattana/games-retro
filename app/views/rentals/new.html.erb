@@ -1,0 +1,26 @@
+<div>
+  <h1 id="show_title">New Rental</h1>
+  <h3 id="show_title"><%= @game.name %></h1>
+  <div class="container show">
+    <div class="row">
+      <div class="col-md-4">
+        <%= cl_image_tag @game.photo, height: 300, width: 400, crop: :fill %>
+      </div>
+      <div class="col-md-3">
+        <p><%= @game.description %></p>
+      </div>
+      <div class="col-md-1">
+        <p>R$ <%= @game.price %></p>
+      </div>
+      <div class="col-md-2">
+        <p><%= @game.console.name %></p>
+      </div>
+    </div>
+  </div>
+  <%= link_to game_rentals_path, method: :post do %>
+    <button class="btn btn-info">Confirm Rental</button>
+  <% end %>
+  <%= link_to games_path do %>
+    <button class="btn btn-info">Cancel</button>
+  <% end %>
+</div>

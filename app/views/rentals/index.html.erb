@@ -1,0 +1,86 @@
+<div class="container games-container">
+      <h1>My Rentals</h1>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <td>
+          <p>User</p>
+        </td>
+        <td>
+          <p>Owner</p>
+        </td>
+        <td>
+          <p>Game</p>
+        </td>
+        <td>
+          <p>Console</p>
+        </td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user_rentals.each do |rental| %>
+          <tr>
+            <td>
+              <p><%= User.find(rental.user_id).first_name %></p>
+            </td>
+            <td>
+              <p><%= User.find(rental.owner_id).first_name %></p>
+            </td>
+            <td>
+              <p><%= rental.game.name %></p>
+            </td>
+            <td>
+              <p><%= rental.game.console.name %></p>
+            </td>
+            <td><%= link_to 'detalhes', rental_path(rental) %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr>
+  <h1>My Games Rented</h1>
+    </div>
+  </div>
+    <table>
+    <thead>
+      <tr>
+        <td>
+          <p>User</p>
+        </td>
+        <td>
+          <p>Owner</p>
+        </td>
+        <td>
+          <p>Game</p>
+        </td>
+        <td>
+          <p>Console</p>
+        </td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @owner_rentals.each do |rental| %>
+          <tr>
+
+              <td>
+                <p><%= User.find(rental.user_id).first_name %></p>
+              </td>
+              <td>
+                <p><%= User.find(rental.owner_id).first_name %></p>
+              </td>
+              <td>
+                <p><%= rental.game.name %></p>
+              </td>
+              <td>
+                <p><%= rental.game.console.name %></p>
+              </td>
+              <td><%= link_to 'detalhes', rental_path(rental) %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

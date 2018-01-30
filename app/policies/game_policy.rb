@@ -33,6 +33,10 @@ class GamePolicy < ApplicationPolicy
     confirm_user
   end
 
+  def user_not_owner?
+    @record.user_id != @user.id
+  end
+
   private
 
   def confirm_user
