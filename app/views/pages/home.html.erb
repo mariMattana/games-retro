@@ -1,5 +1,5 @@
 <div class= "fundo-verde">
-<div class="container">
+  <div class="container">
     <div class="col-md-10 col-md-offset-1">
       <div class="banner-text text-center banner">
         <h1>ALUGUE JOGOS</h1>
@@ -10,47 +10,48 @@
         <!-- <a class="btn btn-primary btn-lg">Start now</a> -->
         <nav role="navigation"> <a href="#services" class="banner-btn"><img src="images/down-arrow.png" alt=""></a></nav>
       </div>
-      <!-- banner text -->
+        <!-- banner text -->
     </div>
   </div>
 </div>
-</div>
 
-<div class="varios-banners">
+  <!-- <div class="container varios-banners"> -->
+<div class="text-center">
   <h1>VIDEO GAMES</h1>
-
-<div class="row">
-  <div class="col-md-3 videogame">
-    <%= image_tag "2-6.jpg" %>
-  </div>
-  <div class="col-md-3">
-    <%= image_tag "4-5.jpg" %>
-  </div>
-  <div class="col-md-3">
-    <%= image_tag "7-3.jpg" %>
-  </div>
-  <div class="col-md-3">
-    <%= image_tag "6-3.jpg" %>
+  <div class="row">
+    <div class="col-md-3 console_card">
+      <%= image_tag "2-6.jpg" %>
+    </div>
+    <div class="col-md-3 console_card">
+      <%= image_tag "4-5.jpg" %>
+    </div>
+    <div class="col-md-3 console_card">
+      <%= image_tag "7-3.jpg" %>
+    </div>
+    <div class="col-md-3 console_card">
+      <%= image_tag "6-3.jpg" %>
+    </div>
   </div>
 </div>
 
-<br>
-<div class= "titulo">
+<div class= "text-center">
   <h1>JOGOS DISPONÍVEIS</h1>
   <div class="row">
     <% @games.each do |game| %>
       <%= link_to game_path(game) do %>
-        <div class="card col-md-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-             url('<%= cl_image_path game.photo, height: 250, width: 350, crop: :fill %>')">
+        <div class="col-md-3">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                 url('<%= cl_image_path game.photo, height: 250, width: 350, crop: :fill %>')">
           <div class="card-name"><%= game.name %></div>
           <div class="card-description">
             <p><%= game.description %></p>
             <p>R$ <%= "%0.2f" % [game.price] %></p>
             <p><%= game.console.name %></p>
           </div>
+          </div>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
-<br>
+
