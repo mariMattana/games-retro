@@ -1,5 +1,5 @@
 <div class="container games-container">
-  <div class="row">
+  <div class="row index_card">
     <div class="col-md-2 col-md-offset-1">
       <h1>All Games</h1>
     </div>
@@ -9,7 +9,7 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
+  <div class="row index_card">
     <% @games.each do |game| %>
       <%= link_to game_path(game) do %>
         <div class="card col-md-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),

@@ -25,6 +25,7 @@
 //   font-size: 100px;
 //   text-align: center;
 // }
+
 .banner {
   background-image: asset-url("banner.jpg");
   background-position: center top;
@@ -35,12 +36,19 @@
   background-size: cover;
   min-height: 750px;
 }
+
+.text-center {
+  text-align: center;
+}
+
 .banner-btn {
   opacity: 0.5;
 }
+
 .banner-text {
   padding-top: 33%;
 }
+
 .banner-text h1 {
   color: #fff;
 
@@ -49,6 +57,7 @@
   font-weight: 700;
   text-transform: uppercase;
 }
+
 .banner-text p {
   color: #8d8d8d;
   font-size: 12px;
@@ -59,11 +68,11 @@
   margin-bottom: 80px;
   text-transform: uppercase;
 }
+
 .fundo-verde{
   background-color: #C0F7AC
 }
-.varios-banners h1 {
-  text-align: center
-}
+
+
 
 
