@@ -16,22 +16,30 @@ class RentalsController < ApplicationController
   end
 
   def create
-    @rental = Rental.new(game_id: params[:game_id])
+    @rental = Rental.new(rental_params)
+    @rental.game_id = params[:game_id]
     authorize @rental
     @game = Game.find(params[:game_id])
     @rental.owner_id = @game.user_id
     @rental.user = current_user
     if @rental.save
+      @game.available = false
+      @game.save
       redirect_to rental_path(@rental)
     else
       render :new
     end
   end
 
+  def rentGame(game, rental)
+    game.available = false
+
+  end
+
   private
 
-  def game_params
-    params.require(:rental).permit(:game_id)
+  def rental_params
+    params.require(:rental).permit(:start_date, :end_date)
   end
 
   def set_rental

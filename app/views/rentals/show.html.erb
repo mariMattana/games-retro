@@ -15,6 +15,17 @@
         <p><%= @rental.game.console.name %></p>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p>ID: <%= @rental.id %></p>
+      </div>
+      <div class="col-md-3">
+        <p>Start Date: <%= @rental.start_date.to_s %></p>
+      </div>
+      <div class="col-md-3">
+        <p>End Date: <%= @rental.end_date %></p>
+      </div>
+    </div>
     <%= link_to rentals_path do %>
       <button class="btn btn-info">Back to Rentals</button>
     <% end %>

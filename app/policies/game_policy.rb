@@ -1,7 +1,7 @@
 class GamePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      Game.all
+      Game.where(available: true)
     end
   end
 

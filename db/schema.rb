@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180130170550) do
+ActiveRecord::Schema.define(version: 20180131110758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180130170550) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.boolean "available", default: true
     t.index ["console_id"], name: "index_games_on_console_id"
     t.index ["user_id"], name: "index_games_on_user_id"
   end
@@ -47,6 +48,10 @@ ActiveRecord::Schema.define(version: 20180130170550) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "owner_id", null: false
+    t.integer "status", default: 0
+    t.float "price"
+    t.date "start_date"
+    t.date "end_date"
     t.index ["game_id"], name: "index_rentals_on_game_id"
     t.index ["user_id"], name: "index_rentals_on_user_id"
   end

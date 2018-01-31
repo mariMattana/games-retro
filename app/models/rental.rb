@@ -4,4 +4,6 @@ class Rental < ApplicationRecord
   belongs_to :owner, class_name: 'User', foreign_key: 'owner_id' # Dono do jogo
 
   scope :owner_rentals, -> (current_user) { where(owner_id: current_user.id) }
+
+  enum status: [ :waiting_confirmation, :confirmed, :waiting_return, :returned, :canceled ]
 end

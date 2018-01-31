@@ -16,10 +16,20 @@
         <p><%= @game.console.name %></p>
       </div>
     </div>
+    <div class="row">
+      <%= simple_form_for([@game, @rental]) do |f| %>
+        <div class="form-group">
+          <%= f.input :start_date, class: 'form-control'  %>
+        </div>
+
+        <div class="form-group">
+          <%= f.input :end_date, class: 'form-control'  %>
+        </div>
+
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
-  <%= link_to game_rentals_path, method: :post do %>
-    <button class="btn btn-info">Confirm Rental</button>
-  <% end %>
   <%= link_to games_path do %>
     <button class="btn btn-info">Cancel</button>
   <% end %>
