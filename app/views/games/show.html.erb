@@ -27,7 +27,7 @@
       <% end %>
     <% end %>
 
-    <% if policy(@game).user_not_owner? %>
+    <% if policy(@game).show? %>
       <%= link_to new_game_rental_path(@game) do %>
         <button class="btn btn-success">Rent</button>
       <% end %>
