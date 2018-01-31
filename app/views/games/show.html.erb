@@ -26,6 +26,15 @@
         <button class="btn btn-danger">Delete</button>
       <% end %>
     <% end %>
+
+    <% if policy(@game).user_not_owner? %>
+      <%= link_to new_game_rental_path(@game) do %>
+        <button class="btn btn-success">Rent</button>
+      <% end %>
+    <% end %>
+
+
+
     <div style="text-align: center">
     <p>
       <%= link_to games_path do %>

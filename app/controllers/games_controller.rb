@@ -3,6 +3,7 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def index
+    check_available(Game.all)
     @games = policy_scope(Game).order(name: :asc)
   end
 
@@ -58,4 +59,20 @@ class GamesController < ApplicationController
     authorize @game
   end
 
+  def check_available(games)
+    today = Date.today
+    games.each do |game|
+      rentals = Rental.where(game_id: game.id)
+      unless game.available || rentals.nil?
+        rentals.each do |rental|
+          if rental.end_date < today
+            game.available = true
+            game.save
+          end
+        end
+      end
+    end
+  end
+
 end
+

@@ -1,7 +1,7 @@
 class GamePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      Game.all
+      Game.where(available: true)
     end
   end
 
@@ -31,6 +31,10 @@ class GamePolicy < ApplicationPolicy
 
   def destroy?
     confirm_user
+  end
+
+  def user_not_owner?
+    @record.user_id != @user.id
   end
 
   private
