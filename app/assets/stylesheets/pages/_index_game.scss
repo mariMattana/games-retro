@@ -1,9 +1,23 @@
 .games-container {
   width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: 80px;
+  margin-left: 0;
 }
-h1 {
-  margin-left: 20px;
+
+.index_card {
+  margin-bottom: 25px;
+  margin-top: 25px;
+  padding: 20px;
 }
-button {
-  margin: 30px 0 0 0;
+
+#all_games {
+  font-size: 80px;
+  margin-bottom: 40px;
+}
+
+.thumbnail {
+  border: none;
+  padding: 5px;
 }

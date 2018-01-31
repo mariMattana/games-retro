@@ -1,18 +1,18 @@
 <div class="container games-container">
-  <div class="row index_card">
-    <div class="col-md-2 col-md-offset-1">
-      <h1>All Games</h1>
-    </div>
-    <div class="col-md-2 col-md-offset-6">
-      <%= link_to new_game_path  do %>
-        <button class="btn-games btn-new-game">New Game</button>
-      <% end %>
-    </div>
+  <div class="text-center">
+    <h1 id="all_games">All Games</h1>
   </div>
-  <div class="row index_card">
+  <div class="text-center">
+    <%= link_to new_game_path  do %>
+      <button class="btn-games btn-new-game">Add a new Game</button>
+    <% end %>
+  </div>
+  <div class="row" style="align-items: center">
     <% @games.each do |game| %>
       <%= link_to game_path(game) do %>
-        <div class="card col-md-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 index_card">
+          <div class="thumbnail">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
              url('<%= cl_image_path game.photo, height: 250, width: 350, crop: :fill %>')">
           <div class="card-name"><%= game.name %></div>
           <div class="card-description">
@@ -20,10 +20,11 @@
             <p>R$ <%= "%0.2f" % [game.price] %></p>
             <p><%= game.console.name %></p>
           </div>
+          </div>
+          </div>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
-
 
