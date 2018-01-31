@@ -1,0 +1,7 @@
+<h1><%= @user.first_name + " " + @user.last_name %></h1>
+<%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
+<p>Address: <%= @user.address + " - " + @user.city %></p>
+<p>CPF: <%= @user.cpf %></p>
+<%= link_to edit_user_registration_path  do %>
+  <button class="btn-games btn-new-game">Edit User</button>
+<% end %>
