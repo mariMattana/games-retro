@@ -7,24 +7,34 @@
       <button class="btn-games btn-new-game">Add a new Game</button>
     <% end %>
   </div>
-  <div class="row" style="align-items: center">
+  <div class="row text-center">
+    <div class="container">
+      <%= form_tag games_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-inline",
+          placeholder: "Find a game"
+        %>
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row index_card">
     <% @games.each do |game| %>
       <%= link_to game_path(game) do %>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 index_card">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
           <div class="thumbnail">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-             url('<%= cl_image_path game.photo, height: 250, width: 350, crop: :fill %>')">
-          <div class="card-name"><%= game.name %></div>
-          <div class="card-description">
-            <p><%= game.description %></p>
-            <p>R$ <%= "%0.2f" % [game.price] %></p>
-            <p><%= game.console.name %></p>
-          </div>
-          </div>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+               url('<%= cl_image_path game.photo, height: 250, width: 350, crop: :fill %>')">
+              <div class="card-name"><%= game.name %></div>
+              <div class="card-description">
+                <p>R$ <%= "%0.2f" % [game.price] %></p>
+                <p><%= game.console.name %></p>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
-
