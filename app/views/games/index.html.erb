@@ -2,13 +2,8 @@
   <div class="text-center">
     <h1 id="all_games">All Games</h1>
   </div>
-  <div class="text-center">
-    <%= link_to new_game_path  do %>
-      <button class="btn-games btn-new-game">Add a new Game</button>
-    <% end %>
-  </div>
   <div class="row text-center">
-    <div class="container">
+    <div class="container form_find_game">
       <%= form_tag games_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -19,13 +14,14 @@
       <% end %>
     </div>
   </div>
+
   <div class="row index_card">
     <% @games.each do |game| %>
       <%= link_to game_path(game) do %>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="thumbnail">
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-               url('<%= cl_image_path game.photo, height: 250, width: 350, crop: :fill %>')">
+               url('<%= cl_image_path game.photo, height: 350, width: 480, crop: :scale %>')">
               <div class="card-name"><%= game.name %></div>
               <div class="card-description">
                 <p>R$ <%= "%0.2f" % [game.price] %></p>
