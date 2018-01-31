@@ -39,7 +39,7 @@
 
   <div class="row">
     <div class="col-md-3 console_card">
-       <img src="assets/donk.png" onmouseover="this.src='assets/donkeygif.gif' " onmouseout="this.src='assets/donk.png'" />
+      <%= image_tag 'donk.png', onmouseover: "this.src='#{asset_path('donkeygif.gif')}'", onmouseout: "this.src='#{asset_path('donk.png')}'"  %>
     </div>
 
     <div class="col-md-3 console_card">
