@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :games
   has_many :rentals
 
+  mount_uploader :photo, PhotoUploader
+
 end

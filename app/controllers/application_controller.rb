@@ -12,10 +12,10 @@ class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :address, :cpf, :city,])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :address, :cpf, :city, :photo])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :address, :cpf, :city, :photo])
   end
 
   private

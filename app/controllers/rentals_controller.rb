@@ -31,9 +31,12 @@ class RentalsController < ApplicationController
     end
   end
 
-  def rentGame(game, rental)
-    game.available = false
-
+  def return
+    @rental = Rental.find(params[:id])
+    authorize @rental
+    @game = Game.find(@rental.game_id)
+    @game.update(available: true)
+    redirect_to rentals_path
   end
 
   private

@@ -17,6 +17,10 @@ class RentalPolicy < ApplicationPolicy
     create?
   end
 
+  def return?
+    show?
+  end
+
   private
 
   def confirm_user
