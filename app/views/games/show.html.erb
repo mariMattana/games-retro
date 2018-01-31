@@ -20,7 +20,7 @@
       <div class="col-md-5">
         <h3>R$ <%= @game.price %></h3>
         <p><%= @game.console.name %></p>
-        <% if policy(@game).user_not_owner? %>
+        <% if policy(@game).show? %>
       <%= link_to new_game_rental_path(@game) do %>
         <button class="btn btn-success">Rent</button>
       <% end %>
@@ -48,9 +48,6 @@
       <% end %>
     <% end %>
     <br>
-
-
-
 
 
     <div style="text-align: center">
