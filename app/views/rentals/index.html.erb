@@ -1,7 +1,5 @@
-<div class="container games-container">
-      <h1>My Rentals</h1>
-    </div>
-  </div>
+<div class="container">
+  <h1>My Rentals</h1>
   <table>
     <thead>
       <tr>
@@ -49,8 +47,6 @@
   </table>
   <hr>
   <h1>My Games Rented</h1>
-    </div>
-  </div>
     <table>
     <thead>
       <tr>
@@ -97,4 +93,11 @@
       <% end %>
     </tbody>
   </table>
+      <div style="text-align: center">
+    <p>
+      <%= link_to games_path do %>
+        <button class="btn btn-info">Back to GAMES</button>
+      <% end %>
+    </p>
+    </div>
 </div>

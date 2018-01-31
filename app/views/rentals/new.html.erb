@@ -1,4 +1,4 @@
-<div class="container">
+<div>
   <h1 id="show_title">New Rental</h1>
   <h3 id="show_title"><%= @game.name %></h1>
   <div class="container show">
@@ -29,8 +29,8 @@
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>
-  </div>
   <%= link_to games_path do %>
     <button class="btn btn-info">Cancel</button>
   <% end %>
+  </div>
 </div>
