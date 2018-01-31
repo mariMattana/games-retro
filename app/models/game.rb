@@ -7,7 +7,6 @@ class Game < ApplicationRecord
   has_many :rentals
   validates :name, :description, :price, presence: true
 
-
   def owner
     user
   end
