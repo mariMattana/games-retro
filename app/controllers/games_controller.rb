@@ -4,7 +4,12 @@ class GamesController < ApplicationController
 
   def index
     check_available(Game.all)
-    @games = policy_scope(Game).order(name: :asc)
+    if params[:query].present?
+      sql_query = "games.name ILIKE :query OR consoles.name ILIKE :query"
+      @games = Game.joins(:console).where(sql_query, query: "%#{params[:query]}%").order(name: :asc)
+    else
+      @games = Game.where(available: true).order(name: :asc)
+    end
   end
 
   def show
