@@ -35,23 +35,25 @@
 </div>
 
 <div class= "text-center">
-  <h1>JOGOS DISPONÍVEIS</h1>
+  <h1>Exemplos de jogos</h1>
+
   <div class="row">
-    <% @games.each do |game| %>
-      <%= link_to game_path(game) do %>
-        <div class="col-md-3">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                 url('<%= cl_image_path game.photo, height: 250, width: 350, crop: :fill %>')">
-          <div class="card-name"><%= game.name %></div>
-          <div class="card-description">
-            <p><%= game.description %></p>
-            <p>R$ <%= "%0.2f" % [game.price] %></p>
-            <p><%= game.console.name %></p>
-          </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+    <div class="col-md-3 console_card">
+      <%= image_tag "donk.png" %>
+    </div>
+    <div class="col-md-3 console_card">
+      <%= image_tag "mari.png" %>
+    </div>
+    <div class="col-md-3 console_card">
+      <%= image_tag "riú.png" %>
+    </div>
+    <div class="col-md-3 console_card">
+      <%= image_tag "sonic.png" %>
+      <br><br><br>
+
+    </div>
+  </div>
+</div>
   </div>
 </div>
 
